@@ -26,9 +26,6 @@ public class tb2auto {
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
         desiredCapabilities.setCapability("app", "C:\\Users\\s\\Downloads\\Terra Battle 2_v1.0.1_apkpure.com.apk");
         desiredCapabilities.setCapability("platformName", "Android");
-        //desiredCapabilities.setCapability("platformVersion", "7.0");
-        //desiredCapabilities.setCapability("deviceName", "06157df69302bd1c");
-        desiredCapabilities.setCapability("deviceName", "ZY223TH93N");
         desiredCapabilities.setCapability("noReset", true);
         desiredCapabilities.setCapability("fullReset", false);
 
