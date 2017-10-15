@@ -1,3 +1,4 @@
+import org.sikuli.basics.Settings;
 import org.sikuli.script.Finder;
 import org.sikuli.script.Match;
 
@@ -12,7 +13,7 @@ public class Helpers {
 
 public static boolean findImage(File screenshot, String imgPath) throws IOException {
     BufferedImage img = ImageIO.read(screenshot);
-
+    Settings.MinSimilarity = 0.5;
     Match m;
     Finder f = new Finder(img);
 

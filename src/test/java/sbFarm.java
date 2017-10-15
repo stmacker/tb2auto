@@ -2,6 +2,7 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import junit.framework.TestCase;
+import net.coobird.thumbnailator.Thumbnails;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -24,11 +25,11 @@ public class sbFarm {
     @Before
     public void setUp() throws MalformedURLException {
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-        desiredCapabilities.setCapability("app", "C:\\Users\\s\\Downloads\\Terra Battle 2_v1.0.1_apkpure.com.apk");
+        desiredCapabilities.setCapability("app", new File("/Users/smackinnon/Downloads/tb2auto-master/src/main/resources/Terra Battle 2_v1.0.1_apkpure.com.apk"));
         desiredCapabilities.setCapability("platformName", "Android");
         //desiredCapabilities.setCapability("platformVersion", "7.0");
-        //desiredCapabilities.setCapability("deviceName", "06157df69302bd1c");
-        desiredCapabilities.setCapability("deviceName", "ZY223TH93N");
+        desiredCapabilities.setCapability("deviceName", "06157df69302bd1c");
+        //desiredCapabilities.setCapability("deviceName", "ZY223TH93N");
         desiredCapabilities.setCapability("noReset", true);
         desiredCapabilities.setCapability("fullReset", false);
 
@@ -69,9 +70,14 @@ public class sbFarm {
         Thread.sleep(7000);
 
         String battleImg = imgDir + "/battleImg.png";
+        System.out.println(driver.currentActivity());
 
-        while (1>0) {
-            if (Helpers.findImage(driver.getScreenshotAs(OutputType.FILE), battleImg)) { //screenshot matches map
+        while (driver.currentActivity().equalsIgnoreCase(".Activity")) {
+            File img = driver.getScreenshotAs(OutputType.FILE);
+            if(width != 1080){
+                Thumbnails.of(img).size(1080,1920).toFile(img);
+            }
+            if (Helpers.findImage(img, battleImg)) { //screenshot matches map
                 System.out.println("Found!");
                 System.out.println("move left");
                 (new TouchAction(driver)).press((int) (width / 1080 * 450), (int) (height / 1920 * 1050))
@@ -105,8 +111,9 @@ public class sbFarm {
             }
             else{
                 System.out.println("...");
+                (new TouchAction(driver)).tap((int) (width / 1080 * 335), (int) (height / 1920 * 390)).perform();
                 System.out.println("map move");
-                (new TouchAction(driver)).press((int) (width / 1080 * 540), (int) (height / 1920 * 885))
+                (new TouchAction(driver)).press((int) (width / 1080 * 540), (int) (height / 1920 * 900))
                         .waitAction(Duration.ofMillis(250))
                         .moveTo(0, h)
                         .waitAction(Duration.ofMillis(250))
@@ -114,7 +121,6 @@ public class sbFarm {
                         .waitAction(Duration.ofMillis(250))
                         .release()
                         .perform();
-
                 System.out.println("start battle");
                 (new TouchAction(driver)).tap((int) (width / 1080 * 335), (int) (height / 1920 * 390)).perform();
             }

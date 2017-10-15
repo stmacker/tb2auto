@@ -5,6 +5,8 @@ import junit.framework.TestCase;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
@@ -18,11 +20,11 @@ public class leviEasy {
     @Before
     public void setUp() throws MalformedURLException {
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-        desiredCapabilities.setCapability("app", "C:\\Users\\s\\Downloads\\Terra Battle 2_v1.0.1_apkpure.com.apk");
+        desiredCapabilities.setCapability("app", new File("/Users/smackinnon/Downloads/tb2auto-master/src/main/resources/Terra Battle 2_v1.0.1_apkpure.com.apk"));
         desiredCapabilities.setCapability("platformName", "Android");
         //desiredCapabilities.setCapability("platformVersion", "7.0");
-        desiredCapabilities.setCapability("deviceName", "06157df69302bd1c");
-        //desiredCapabilities.setCapability("deviceName", "ZY223TH93N");
+        //desiredCapabilities.setCapability("deviceName", "06157df69302bd1c");
+        desiredCapabilities.setCapability("deviceName", "ZY223TH93N");
         desiredCapabilities.setCapability("noReset", true);
         desiredCapabilities.setCapability("fullReset", false);
 
@@ -85,22 +87,22 @@ public class leviEasy {
 
         System.out.println("first move");
         (new TouchAction(driver)).press((int) (width/1440*135),(int) (height/2560*2175))
-                .waitAction(Duration.ofMillis(500))
+                .waitAction(Duration.ofMillis(250))
                 .moveTo(0,-3*h)
-                .waitAction(Duration.ofMillis(500))
+                .waitAction(Duration.ofMillis(250))
                 .moveTo(w,0)
-                .waitAction(Duration.ofMillis(500))
+                .waitAction(Duration.ofMillis(250))
                 .release()
                 .perform();
         Thread.sleep(20000);
 
         System.out.println("second move");
         (new TouchAction(driver)).press((int) (width/1440*365),(int) (height/2560*1480))
-                .waitAction(Duration.ofMillis(500))
+                .waitAction(Duration.ofMillis(250))
                 .moveTo(0,-h)
-                .waitAction(Duration.ofMillis(500))
+                .waitAction(Duration.ofMillis(250))
                 .moveTo(0,h)
-                .waitAction(Duration.ofMillis(500))
+                .waitAction(Duration.ofMillis(250))
                 .release()
                 .perform();
         Thread.sleep(20000);
@@ -113,22 +115,22 @@ public class leviEasy {
 
         System.out.println("third move");
         (new TouchAction(driver)).press((int) (width/1440*365),(int) (height/2560*1480))
-                .waitAction(Duration.ofMillis(500))
+                .waitAction(Duration.ofMillis(250))
                 .moveTo(w,0)
-                .waitAction(Duration.ofMillis(500))
+                .waitAction(Duration.ofMillis(250))
                 .moveTo(w,0)
-                .waitAction(Duration.ofMillis(500))
+                .waitAction(Duration.ofMillis(250))
                 .release()
                 .perform();
         Thread.sleep(20000);
 
         System.out.println("fourth move");
         (new TouchAction(driver)).press((int) (width/1440*825),(int) (height/2560*1480))
-                .waitAction(Duration.ofMillis(500))
+                .waitAction(Duration.ofMillis(250))
                 .moveTo(w,0)
-                .waitAction(Duration.ofMillis(500))
+                .waitAction(Duration.ofMillis(250))
                 .moveTo(-w,0)
-                .waitAction(Duration.ofMillis(500))
+                .waitAction(Duration.ofMillis(250))
                 .release()
                 .perform();
         Thread.sleep(20000);
@@ -141,27 +143,27 @@ public class leviEasy {
 
         System.out.println("boss move");
         (new TouchAction(driver)).press((int) (width/1440*365),(int) (height/2560*2175))
-                .waitAction(Duration.ofMillis(500))
+                .waitAction(Duration.ofMillis(250))
                 .moveTo(0,-h)
-                .waitAction(Duration.ofMillis(500))
+                .waitAction(Duration.ofMillis(250))
                 .moveTo(2*w,0)
-                .waitAction(Duration.ofMillis(500))
+                .waitAction(Duration.ofMillis(250))
                 .moveTo(0,h)
-                .waitAction(Duration.ofMillis(500))
+                .waitAction(Duration.ofMillis(250))
                 .moveTo(w,0)
-                .waitAction(Duration.ofMillis(500))
+                .waitAction(Duration.ofMillis(250))
                 .moveTo(0,-2*h)
-                .waitAction(Duration.ofMillis(500))
+                .waitAction(Duration.ofMillis(250))
                 .moveTo(-w,0)
-                .waitAction(Duration.ofMillis(500))
+                .waitAction(Duration.ofMillis(250))
                 .moveTo(0,2*h)
-                .waitAction(Duration.ofMillis(500))
+                .waitAction(Duration.ofMillis(250))
                 .moveTo(-2*w,0)
-                .waitAction(Duration.ofMillis(500))
+                .waitAction(Duration.ofMillis(250))
                 .moveTo(0,-5*h)
-                .waitAction(Duration.ofMillis(500))
+                .waitAction(Duration.ofMillis(250))
                 .moveTo(2*w,0)
-                .waitAction(Duration.ofMillis(500))
+                .waitAction(Duration.ofMillis(250))
                 .release()
                 .perform();
         Thread.sleep(20000);
